@@ -6,7 +6,4 @@ import mysql.connector
 from models.database import connection, cursor
 @app.route('/')
 def index():
-    cursor.execute('select * from users')
-    results = cursor.fetchall()
-    print(results)
-    return 'Hello friend'
+    return render_template('index.html')
