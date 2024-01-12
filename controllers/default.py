@@ -15,5 +15,6 @@ def index():
         if rows < 1:
             alertMsg = "Email ou senha invalidos."
             alertClass = "alert alert-danger"
+            return render_template('login.html', alertMsg=alertMsg, alertClass=alertClass)
         return render_template('login.html')
     return render_template('login.html')
