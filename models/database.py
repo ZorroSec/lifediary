@@ -2,10 +2,10 @@ import mysql.connector
 
 connection = mysql.connector.connect(
     host='monorail.proxy.rlwy.net',
-    port=49388,
+    port=50276,
     user='railway',
-    pasword='lifediary',
-    database='lifediary'
+    password='-AAlCJXn8k-pYilmi-wPzAbCpDbSq_lG',
+    database='railway'
 )
 
 cursor = connection.cursor()
