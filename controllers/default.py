@@ -26,4 +26,6 @@ def index():
 
 @app.route('/<nome>', methods=['GET', 'POST'])
 def console(nome):
-    return render_template('index.html')
+    cursor.execute('SELECT * FROM posts ORDER BY likes DESC')
+    results = cursor.fetchall()
+    return render_template('index.html', nome=nome, results=results)
