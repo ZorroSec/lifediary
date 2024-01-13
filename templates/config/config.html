@@ -61,11 +61,21 @@
             </div>
         </div>
     </header>
-    <div class="conteiner">
+    <div class="container">
         {% for user in userInfo %}
-            <form action="">
-                <div class="form-group">
-                    <input type="text" name="nome" id="nome" placeholder="Nome" value="{{post[1]}}">
+        <h2>Editar perfil</h2>
+            <form action="/{{nome}}/editar/perfil" method="POST">
+                <div class="mb-3">
+                    <a href="/{{nome}}/editar/email">Editar email e senha</a>
+                </div>
+                <div class="mb-3">
+                    <label for="descricao" class="form-label">Descrição</label>
+                    <textarea name="descricao" id="descricao" cols="30" rows="10" class="form-control" style="height: 175px;">{{user[4]}}</textarea>
+                </div>
+                <div class="mb-2">
+                    <button type="submit" class="btn btn-success">
+                        Alterar
+                    </button>
                 </div>
             </form>
         {% endfor %}
