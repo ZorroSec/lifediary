@@ -8,8 +8,8 @@
     ],
     "routes": [
         {
-            "dest": "(.*)",
-            "src": "run.py"
+            "src": "(.*)",
+            "dest": "run.py"
         }
     ]
 }
