@@ -62,7 +62,13 @@
         </div>
     </header>
     <div class="conteiner">
-        
+        {% for user in userInfo %}
+            <form action="">
+                <div class="form-group">
+                    <input type="text" name="nome" id="nome" placeholder="Nome" value="{{post[1]}}">
+                </div>
+            </form>
+        {% endfor %}
     </div>
 </body>
 </html>
