@@ -36,3 +36,9 @@ def console(nome):
         res = cursor.fetchall()
         return render_template("index.html", nome=nome, results=res)
     # return "Success"
+
+@app.route('/<nome>/editar/perfil', methods=['GET', 'POST'])
+def config(nome):
+    cursor.execute(f"SELECT * FROM users WHERE nome = '{nome}'")
+    userInfo = cursor.fetchall()
+    return render_template('config/config.html', nome=nome, userInfo=userInfo)
