@@ -28,4 +28,4 @@ def index():
 def console(nome):
     cursor.execute('SELECT * FROM posts ORDER BY likes DESC')
     results = cursor.fetchall()
-    return render_template('index.html', nome=nome, results=results)
+    return render_template("index.html", nome=nome, results=results)
