@@ -26,7 +26,13 @@ def index():
 
 @app.route('/<nome>', methods=['GET', 'POST'])
 def console(nome):
-    cursor.execute('SELECT * FROM posts ORDER BY likes DESC')
-    res = cursor.fetchall()
-    return render_template("index.html", nome=nome, results=res)
+    cursor.execute(f"SELECT * FROM users WHERE nome = '{nome}'")
+    results = cursor.fetchall()
+    rows = cursor.rowcount
+    if rows < 1:
+        return render_template('errors/users_not_found.html')
+    else:
+        cursor.execute('SELECT * FROM posts ORDER BY likes DESC')
+        res = cursor.fetchall()
+        return render_template("index.html", nome=nome, results=res)
     # return "Success"
