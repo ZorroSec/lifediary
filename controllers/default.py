@@ -11,15 +11,14 @@ def index():
         email = request.form['email']
         senha = request.form['senha']
         cursor.execute(f"SELECT * FROM users WHERE email = '{email}' and senha = '{senha}'")
-        rows = cursor.rowcount
         results = cursor.fetchall()
+        rows = cursor.rowcount
         print(rows)
         print(results)
-        if rows > -1:
-            return "Error"
-            # alertMsg = "Email ou senha invalidos."
-            # alertClass = "alert alert-danger"
-            # return render_template('login.html', alertMsg=alertMsg, alertClass=alertClass)
+        if rows < 1:
+            alertMsg = "Email ou senha invalidos."
+            alertClass = "alert alert-danger"
+            return render_template('login.html', alertMsg=alertMsg, alertClass=alertClass)
         else:
             print(results)
             return redirect(f'/{results[0][1]}')
